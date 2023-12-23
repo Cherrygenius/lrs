@@ -6,10 +6,9 @@ public class Example9_1 {
     private static final String alphabet = "qwertyuioplkjhgfdsazxcvbnmцукенгшщзжэхълорпавыфячсмитьбю";
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String str = scanner.nextLine();
         int key = scanner.nextInt();
 
-        char[] chars = str.toCharArray();
+        char[] chars = scanner.nextLine().toCharArray();
 
         for (int i = 0; i < chars.length; i++) {
             if (Character.isLetter(chars[i])) {
