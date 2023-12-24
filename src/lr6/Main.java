@@ -1,5 +1,7 @@
 package lr6;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("Example1");
@@ -43,5 +45,26 @@ public class Main {
         System.out.println("Example6");
         int[] myArray = {1,2,3,4,5};
         System.out.println(Example6.copyArray1(myArray, 3));
+
+
+        System.out.println("Example7");
+        char[] input = {'a' , 'b', 'c'};
+        int[] codes = Example7.getCharacterCode(input);
+        System.out.println(Arrays.toString(codes));
+
+
+        System.out.println("Example8");
+        int[] array = {1,2,3,4};
+        System.out.println(Example8.arrayAverage(array));
+
+
+        System.out.println("Example9");
+        char[] charsArray = {'a','b','c','d','2','3','5'};
+        System.out.println(Example9.swapPosition(charsArray));
+
+
+        System.out.println("Example10");
+        int[] numbers_1 = {1,2,4,5,6,7};
+        System.out.println(Arrays.toString(Example10.findMinMax(numbers_1)));
     }
 }
