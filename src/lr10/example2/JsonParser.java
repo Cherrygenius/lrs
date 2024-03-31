@@ -26,6 +26,9 @@ public class JsonParser {
                 System.out.println("Год издания: " + book.get("year"));
 
             }
+            //JsonOperation.addBook(jsonObject);
+            //JsonOperation.findBook(jsonObject);
+            JsonOperation.removeBook(jsonObject);
         }catch (Exception e) {
             e.printStackTrace();
         }

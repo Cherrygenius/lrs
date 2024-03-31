@@ -8,8 +8,6 @@ import org.w3c.dom.NodeList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 
 public class XmlParser {
     public static void main(String[] args) {
@@ -19,7 +17,7 @@ public class XmlParser {
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(inputFile);
             doc.getDocumentElement().normalize();
-            NewBook.addNewBook(doc);
+            //BookOperation.addNewBook(doc);
             System.out.println("Корневой элемент: " + doc.getDocumentElement().getNodeName());
             NodeList nodeList = doc.getElementsByTagName("book");
             for (int i = 0; i < nodeList.getLength(); i++) {
@@ -35,7 +33,8 @@ public class XmlParser {
                             + element.getElementsByTagName("year").item(0).getTextContent());
                 }
             }
-
+            BookOperation.findBook(nodeList);
+            BookOperation.removeBook(doc, "Война и мир");
         } catch (Exception e) {
             e.printStackTrace();
         }

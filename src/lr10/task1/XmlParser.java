@@ -12,7 +12,7 @@ import java.io.File;
 public class XmlParser {
     public static void main(String[] args) {
         try {
-            File inputFile = new File("C:\\Users\\Максим\\IdeaProjects\\lrs\\Songs.xml");
+            File inputFile = new File("C:\\Users\\Максим\\IdeaProjects\\lrs\\songs.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(inputFile);
@@ -25,7 +25,7 @@ public class XmlParser {
                 if  (node.getNodeType() == node.ELEMENT_NODE){
                     Element element = (Element) node;
                     System.out.println("Жанр: "
-                            + element.getElementsByTagName("janre").item(0).getTextContent());
+                            + element.getElementsByTagName("genre").item(0).getTextContent());
                     System.out.println("Исполнитель: "
                             + element.getElementsByTagName("singer").item(0).getTextContent());
                     System.out.println("Трек: "
