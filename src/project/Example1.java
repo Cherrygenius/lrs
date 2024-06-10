@@ -21,7 +21,7 @@ public class Example1 {
             // Удаление элемента
             hashMap.remove("banana");
 
-            // Проверка наличия ключа
+            // containsKey
             boolean containsKey = hashMap.containsKey("banana");
             System.out.println("Contains key 'banana': " + containsKey);
         }

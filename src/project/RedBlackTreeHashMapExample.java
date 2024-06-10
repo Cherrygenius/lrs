@@ -10,26 +10,42 @@ public class RedBlackTreeHashMapExample {
         // Создаем HashMap
         HashMap<Integer, String> hashMap = new HashMap<>();
 
-        // Добавляем элементы в HashMap
+        // Добавляем элементы в HashMap и замеряем время вставки и поиска
+        Random random = new Random();
+        long startTime, endTime;
+
+        // Добавляем элементы с коллизиями
         for (int i = 0; i < 20; i++) {
-            int key = new Random().nextInt(100);
+            int key = random.nextInt(10); // Ключи от 0 до 9
             hashMap.put(key, "Value" + key);
         }
 
-        // Выводим элементы HashMap до преобразования в красно-черные деревья
-        System.out.println("HashMap до преобразования в красно-черные деревья:");
-        for (Map.Entry<Integer, String> entry : hashMap.entrySet()) {
-            System.out.println(entry.getKey() + ": " + entry.getValue());
+        // Замеряем время поиска до значительного добавления элементов
+        startTime = System.nanoTime();
+        for (int i = 0; i < 1000; i++) {
+            hashMap.get(random.nextInt(10));
+        }
+        endTime = System.nanoTime();
+        System.out.println("Время поиска до добавления значительного количества элементов: " + (endTime - startTime) + " наносекунд");
+
+        // Добавляем больше элементов для вероятного преобразования в красно-черные деревья
+        for (int i = 20; i < 1000; i++) {
+            int key = random.nextInt(10);
+            hashMap.put(key, "Value" + key);
         }
 
-        // Проводим преобразование в красно-черные деревья
-        // (фактически это происходит внутри реализации HashMap при достижении определенного порога)
+        // Замеряем время поиска после значительного добавления элементов
+        startTime = System.nanoTime();
+        for (int i = 0; i < 1000; i++) {
+            hashMap.get(random.nextInt(10));
+        }
+        endTime = System.nanoTime();
+        System.out.println("Время поиска после добавления значительного количества элементов: " + (endTime - startTime) + " наносекунд");
 
-        // Выводим элементы HashMap после преобразования
-        System.out.println("\nHashMap после преобразования в красно-черные деревья:");
+        // Выводим элементы HashMap после добавления значительного количества элементов
+        System.out.println("\nHashMap после добавления значительного количества элементов:");
         for (Map.Entry<Integer, String> entry : hashMap.entrySet()) {
             System.out.println(entry.getKey() + ": " + entry.getValue());
         }
     }
 }
-
